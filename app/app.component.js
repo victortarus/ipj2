@@ -9,14 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var meal_model_1 = require('../app/meal.model');
 var AppComponent = (function () {
     function AppComponent() {
-        this.mealTracker = new Tracker("Hamburger", "i wish i ate at the kibanda", 550);
+        this.mealTracker = new meal_model_1.Tracker("Hamburger", "i wish i ate at the kibanda", 550);
+        this.get = new meal_model_1.Tracker('vic', 'Hamburger', 500);
+        this.submitted = false;
     }
+    AppComponent.prototype.onsubmit = function () { this.submitted = true; };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'meal-tracker',
-            template: "\n\n<div class=\"container\">\n <div id=\"header\">\n <h1>Meal Tracker App</h1>\n</div>\n  <div>\n    <label>Name:</label>\n    <input type=\"text\" ng-model=\"name\">\n  </div>\n  <div>\n    <label>Details:</label>\n    <input type=\"text\" ng-model='details'>\n  </div>\n  <div>\n    <label>Calories:</label>\n    <input type=\"number\"ng-model=\"calories\">\n  </div>\n  <button (click)=\"save()\">Save</button>\n  <button (click)=\"edit()\">Edit</button>\n</div>\n  "
+            template: "\n  <div class=\"container\">\n      <h1>Track your calories</h1>\n      <form (ngSubmit)=onSubmit() #allform=\"ngForm\">\n        <div class=\"form-group\">\n          <label for=\"name\">Name</label>\n          <input type=\"text\" class=\"form-control\" id=\"name\" required ngModel=\"Tracker.name\">\n        </div>\n\n        <div class=\"form-group\">\n          <label for=\"details\">Details</label>\n          <input type=\"text\" class=\"form-control\" id=\"details\" ngModel=\"Tracker.details\">\n        </div>\n        <div>\n          <label for=\"calories\">Calories</label>\n          <input type=\"number\" class=\"form-control\" id=\"calories\" required ngModel=\"Tracker.calories\">\n        </div>\n        <button type=\"submit\" class=\"btn btn-success\">Submit</button>\n\n      </form>\n  </div>\n\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
@@ -24,13 +28,4 @@ var AppComponent = (function () {
 }());
 exports.AppComponent = AppComponent;
 //created a tracker model by adding class definition for a tracker
-var Tracker = (function () {
-    function Tracker(name, details, calories) {
-        this.name = name;
-        this.details = details;
-        this.calories = calories;
-    }
-    return Tracker;
-}());
-exports.Tracker = Tracker;
 //# sourceMappingURL=app.component.js.map
