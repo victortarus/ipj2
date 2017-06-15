@@ -1,37 +1,48 @@
 import {Component}from '@angular/core';
-import{Tracker}from'../app/meal.model';
+import { Meal } from './meal.model';
 
 @Component({
   selector: 'meal-tracker',
   template: `
-  <div class="container">
-      <h1>Track your calories</h1>
-      <form (ngSubmit)=onSubmit() #allform="ngForm">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" class="form-control" id="name" required ngModel="Tracker.name">
-        </div>
-
-        <div class="form-group">
-          <label for="details">Details</label>
-          <input type="text" class="form-control" id="details" ngModel="Tracker.details">
-        </div>
-        <div>
-          <label for="calories">Calories</label>
-          <input type="number" class="form-control" id="calories" required ngModel="Tracker.calories">
-        </div>
-        <button type="submit" class="btn btn-success">Submit</button>
-
-      </form>
+<div class="container-fluid">
+  <div class="hader">
+    <h1>Meal Tracker</h1>
   </div>
-
-  `
+  <div class ="ml col-md-6">
+    <p>Welcome to Your daily Food journal<p>
+    <p>Track down your calories.</p>
+    <meal-list
+      [childMealList]="masterMealList"
+      (clickSender)="showDetails($event)"
+    ></meal-list>
+  </div>
+  <div class="nm col-md-6">
+    <edit-meal
+      [childSelectedMeal]="selectedMeal"
+      (doneClickedSender)="finishedEditing()"
+    ></edit-meal>
+    <new-meal
+      (newMealSender)="addMeal($event)"
+    ></new-meal>
+  </div>
+</div>
+ `
 })
 export class AppComponent {
-mealTracker:Tracker = new Tracker("Hamburger","i wish i ate at the kibanda",550);
-get =new Tracker('vic','Hamburger',500);
-submitted=false;
-onsubmit(){this.submitted=true;}
-
+  public masterMealList: Meal[] = [
+    new Meal("Fries n chicken.",800),
+    new Meal("Ugali managu.", 200),
+    new Meal("Sambusa.", 400),
+    new Meal("Sharwarma.", 1000),
+  ];
+  selectedMeal: Meal = null;
+  showDetails(clickedMeal: Meal) {
+    this.selectedMeal = clickedMeal;
+  }
+  finishedEditing() {
+    this.selectedMeal = null;
+  }
+  addMeal(newMealFromChild: Meal) {
+    this.masterMealList.push(newMealFromChild);
+  }
 }
-//created a tracker model by adding class definition for a tracker

@@ -1,3 +1,4 @@
-export class Tracker{
-  constructor( public name: string, public details: string, public calories: number){ }
+export class Meal {
+  public done: boolean = false;
+  constructor(public description: string, public id: number) {   }
 }

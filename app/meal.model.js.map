@@ -1,1 +1,1 @@
-{"version":3,"file":"meal.model.js","sourceRoot":"","sources":["meal.model.ts"],"names":[],"mappings":";AAAA;IACE,iBAAoB,IAAY,EAAS,OAAe,EAAS,QAAgB;QAA7D,SAAI,GAAJ,IAAI,CAAQ;QAAS,YAAO,GAAP,OAAO,CAAQ;QAAS,aAAQ,GAAR,QAAQ,CAAQ;IAAG,CAAC;IACvF,cAAC;AAAD,CAAC,AAFD,IAEC;AAFY,eAAO,UAEnB,CAAA"}
+{"version":3,"file":"meal.model.js","sourceRoot":"","sources":["meal.model.ts"],"names":[],"mappings":";AAAA;IAEE,cAAmB,WAAmB,EAAS,EAAU;QAAtC,gBAAW,GAAX,WAAW,CAAQ;QAAS,OAAE,GAAF,EAAE,CAAQ;QADlD,SAAI,GAAY,KAAK,CAAC;IACkC,CAAC;IAClE,WAAC;AAAD,CAAC,AAHD,IAGC;AAHY,YAAI,OAGhB,CAAA"}

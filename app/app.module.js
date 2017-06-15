@@ -12,14 +12,28 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var app_component_1 = require('./app.component');
+var meal_list_component_1 = require('./meal-list.component');
+var edit_meal_component_1 = require('./edit-meal.component');
+var new_meal_component_1 = require('./new-meal.component');
+var meal_component_1 = require('./meal.component');
+var complete_pipe_1 = require('./complete.pipe');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule,
-                forms_1.FormsModule],
-            declarations: [app_component_1.AppComponent],
+            imports: [
+                platform_browser_1.BrowserModule,
+                forms_1.FormsModule
+            ],
+            declarations: [
+                app_component_1.AppComponent,
+                meal_list_component_1.MealListComponent,
+                edit_meal_component_1.EditMealComponent,
+                new_meal_component_1.NewMealComponent,
+                meal_component_1.MealComponent,
+                complete_pipe_1.CompletePipe,
+            ],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
